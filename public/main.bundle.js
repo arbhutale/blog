@@ -1576,7 +1576,6 @@ var NotAuthGuard = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__("../../../../angular2-jwt/angular2-jwt.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1591,12 +1590,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
-        // domain = ""; // Production
-        this.domain = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].domain;
+        this.domain = new URL(window.location.href).origin;
     }
     // Function to create headers, add token, to be used in HTTP requests
     AuthService.prototype.createAuthenticationHeaders = function () {
@@ -1771,8 +1768,7 @@ var BlogService = (function () {
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `angular-cli.json`.
 var environment = {
-    production: false,
-    domain: "http://localhost:8080/"
+    production: false
 };
 //# sourceMappingURL=C:/WORK/blog/client/src/environment.js.map
 

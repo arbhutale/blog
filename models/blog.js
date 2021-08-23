@@ -4,7 +4,7 @@
 const mongoose = require('mongoose'); // Node Tool for MongoDB
 mongoose.Promise = global.Promise; // Configure Mongoose Promises
 const Schema = mongoose.Schema; // Import Schema from Mongoose
-
+mongoose.plugin(schema => { schema.options.usePushEach = true });
 // Validate Function to check blog title length
 let titleLengthChecker = (title) => {
   // Check if blog title exists
